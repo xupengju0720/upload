@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript">
+	    function fileUpload() {
+	        var form_data = new FormData();
+	        var fileObj = document.getElementById("file").files[0];
+	        form_data.append("file", fileObj);
+	        $.ajax({
+	            url: 'http://192.168.28.101:8080/examples/docmentory/upload',
+	            type: 'POST',
+	            data: form_data,
+	            crossDomain:true,
+	            processData: false,
+	            contentType: false,
+	            dataType: "json",
+	            success : function(data) {
+	            	console.log(data.url);
+	    		}
+	        });
+	    }
+</script>
+</head>
+<body>
+	<input type="file" id="file" value="">
+	<button type="button" onclick="fileUpload()">上传</button>
+</body>
+</html>

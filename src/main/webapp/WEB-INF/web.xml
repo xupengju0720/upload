@@ -1,0 +1,50 @@
+<web-app>
+
+  <display-name>Archetype Created Web Application</display-name>
+<!--  <servlet> 
+    <servlet-name>mig</servlet-name>
+    <servlet-class>servlet.RandomCode</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mig</servlet-name>
+    <url-pattern>/mig/ng</url-pattern>
+  </servlet-mapping>
+ 
+   
+<filter>
+<filter-name>contextfilter</filter-name>
+<filter-class>filter.SimpleCORSFilter</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>contextfilter</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+  -->
+  
+  <!-- 支持跨域请求 -->
+<filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+  
+  
+	<servlet>
+		<servlet-name>Activity</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Activity</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+   
+</web-app>
