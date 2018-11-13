@@ -76,15 +76,9 @@ public class Duoxiancheng_controller {
 		doc.setNowname(filename);
 		
 		// 将MultipartFile文件转换为file文件
-		CommonsMultipartFile cf = (CommonsMultipartFile) file;
-
-		DiskFileItem fi = (DiskFileItem) cf.getFileItem();
-
-		File f = fi.getStoreLocation();
-
-		long size_limit = f.length();// 获取文件大小
-
-		doc.setSize_limit(size_limit);// 设置类对象属性
+	    long size_limit =	file.getSize();// 获取文件大小
+	    
+		doc.setSize_limit(size_limit);
 
 		service.insertjl(doc);// 修改数据库
 		
