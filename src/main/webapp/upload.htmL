@@ -10,7 +10,7 @@
 	        var fileObj = document.getElementById("file").files[0];
 	        form_data.append("file", fileObj);
 	        $.ajax({
-	            url: 'http://192.168.28.101:8080/examples/docmentory/upload',
+	            url: 'http://192.168.28.101:8080/upload/docmentory/upload',
 	            type: 'POST',
 	            data: form_data,
 	            crossDomain:true,

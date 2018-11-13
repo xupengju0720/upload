@@ -61,17 +61,19 @@ public class Duoxiancheng_controller {
 		
 		doc.setLastname(lastname);
 
-		doc.setNowname(datime + nowname);
-
 		doc.setCreatetime(date.getTime());
 
 		String file_name = md5.MD5(datime+lastname).substring(0, 8);
-		String downloadpath = "http://192.168.28.101:8080/examples/WEB-INF/upload/" + day + "/" + hour + "/" + file_name
+		
+		String downloadpath = "http://192.168.28.101:8080/upload/upload/" + day + "/" + hour + "/" + file_name
 				+ lastname.substring(lastname.lastIndexOf("."), lastname.length());// 存储到数据库路径
-		doc.setPath(downloadpath);
-		String path = request.getRealPath("/WEB-INF/upload/"+day+"/"+hour);// 设置上传路径 根目录+时间串+文件名MD5加密之后的前八位
+		String path = request.getRealPath("/upload/"+day+"/"+hour);// 设置上传路径
 		
 		String filename = file_name+ lastname.substring(lastname.lastIndexOf("."), lastname.length());
+		
+		doc.setPath(downloadpath);
+		
+		doc.setNowname(filename);
 		
 		// 将MultipartFile文件转换为file文件
 		CommonsMultipartFile cf = (CommonsMultipartFile) file;
