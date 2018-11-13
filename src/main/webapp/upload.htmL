@@ -6,6 +6,7 @@
 <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
 <script type="text/javascript">
 	    function fileUpload() {
+	    	for (var i = 0; i <1000; i++) {
 	        var form_data = new FormData();
 	        var fileObj = document.getElementById("file").files[0];
 	        form_data.append("file", fileObj);
@@ -21,7 +22,8 @@
 	            	console.log(data.url);
 	    		}
 	        });
-	    }
+	    }	
+	    	}
 </script>
 </head>
 <body>
